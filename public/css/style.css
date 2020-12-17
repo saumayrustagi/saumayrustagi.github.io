@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @font-face{
-    font-family: UbuntuMono;
+    font-family: Ubuntu Mono;
     src: url(../fonts/UbuntuMono-Regular.ttf);
 }
 
@@ -37,9 +37,11 @@ a{
 /* particles */
 
 #particles-js{
+    /* var */
+    --tpclr: rgb(255, 212, 93);
     /* background */
+    background-color: #024065;
     background-image: url('../img/bluebg.jpg');
-    background-color: var(--bgcolor);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -60,17 +62,9 @@ a{
     transform: translateX(-50%);
     white-space: nowrap;
     /* font */
-    font-family: UbuntuMono;
+    font-family: 'Ubuntu Mono', sans-serif;
     font-size: 12vw;
-    color: rgb(255, 212, 93);
-    /* effects */
-    cursor: default;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    color: var(--tpclr);
 }
 
 #particles-js > a > i{
@@ -84,13 +78,17 @@ a{
     white-space: nowrap;
     /* font */
     font-size: 4vw;
-    color: rgb(255, 212, 93);
+    color: var(--tpclr);
     /* effects */
     cursor: default;
 }
 
 /* particles end */
 /* container */
+
+.bg1, .bg2, .simple{
+    background-color: rgb(46, 46, 46);
+}
 
 .bg1{
     background-image: url('../img/drkmntns.jpg');
@@ -123,7 +121,7 @@ a{
 }
 
 .container div:hover{
-    background: rgba(143, 0, 161, 0.849)
+    background: rgba(0, 101, 114, 0.849)
 }    
 
 .container > a:nth-of-type(1){
@@ -138,13 +136,13 @@ a{
     grid-column: 3/5;
 }
 
-.container .cred{
+.container .simple{
     --border: rgb(23, 190, 0);
-    background-image: url("../img/star.jpg");
+    background-image: url("../img/blck.jpg");
     background-size: cover;
-    background-position: 50% 30%;
+    background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-attachment: local;
+    background-attachment: unset;
     box-shadow: 0 0 0 0.06rem var(--border);
     outline: 0.06rem solid var(--border);
     outline-offset: -0.3rem;
@@ -164,7 +162,7 @@ h2 > span{
     font-size: 1rem;
 }
 
-div h2, div span, div p, a{
+a, #particles-js > h1{
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
