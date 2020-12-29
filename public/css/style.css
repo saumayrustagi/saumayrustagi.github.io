@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 @font-face{
-    font-family: Ubuntu Mono;
-    src: url(../fonts/UbuntuMono-Regular.ttf);
+    font-family: Ubuntu-Mono;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/UbuntuMono-Regular.ttf');
 }
 
 /* CSS variables */
@@ -62,7 +65,7 @@ a{
     transform: translateX(-50%);
     white-space: nowrap;
     /* font */
-    font-family: 'Ubuntu Mono', sans-serif;
+    font-family: 'Ubuntu Mono', 'Ubuntu-Mono', monospace;
     font-size: 12vw;
     color: var(--tpclr);
 }
@@ -138,7 +141,7 @@ a{
 
 .container .simple{
     --border: rgb(23, 190, 0);
-    background-image: url("../img/blck.jpg");
+    background-image: url('../img/blck.jpg');
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
