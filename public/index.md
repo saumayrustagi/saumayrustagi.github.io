@@ -1,4 +1,4 @@
-# smayrstgi
+# Saumay Rustagi
 
 > Or you can visit the [Fancy Webpage](./pages/fancy.html).
 
