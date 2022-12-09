@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
-@font-face{
+/* @font-face{
     font-family: Ubuntu-Mono;
     font-style: normal;
     font-weight: normal;
     src: url('../fonts/UbuntuMono-Regular.ttf');
-}
+} */
 
 /* CSS variables */
 :root{
