@@ -1,8 +1,10 @@
+<!--Attributes
 title: What is a file?
 link: what-is-a-file
 published_date: 2023-04-16
-tags: linux, html, xxd, binary, hexadecimal
-___
+meta_description: Decode a base64 image into png
+tags: binary, hexadecimal, html, linux, xxd 
+-->
 
 # How to convert a base64 data stream into an image?
 
@@ -59,7 +61,7 @@ We now know that the data is in base64, which is simply a way to encode binary d
 
 We need a hexadecimal processor to create a binary file from this base64-encoded data. We don't manipulate binary data directly because it's extremely cumbersome to represent and work with, instead, we use hexadecimal which lets us store much more information with fewer bits and greater convenience. Once we have hexadecimal data, it's very simple to convert it into binary. A widely available Linux utility, `xxd` can both encode and decode hexadecimal files.
 
-But before all this, we must convert the base64 data into hexadecimal first. A simple method is to just go to [RapidTables](https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html) for the conversion from base64 to hexadecimal. Copy the contents of your file, paste them into the base64 box, and copy the resulting hexadecimal data into a file.
+But before all this, we must convert the base64 data into hexadecimal first. A simple method is to just go to [RapidTables](tab:https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html) for the conversion from base64 to hexadecimal. Copy the contents of your file, paste them into the base64 box, and copy the resulting hexadecimal data into a file.
 
 ```text
 $ echo '89 50 [..omitted for brevity..] 60 82' > hexadecimal.txt

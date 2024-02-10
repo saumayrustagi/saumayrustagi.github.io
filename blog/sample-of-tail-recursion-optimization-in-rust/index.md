@@ -1,9 +1,10 @@
+<!--Attributes
 title: Sample of tail recursion optimization in Rust
 link: sample-of-tail-recursion-optimization-in-rust
 published_date: 2023-01-08
 meta_description: Showing optimization by overflowing the stack
-tags: rust, optimization
-___
+tags: optimization, rust 
+-->
 
 ## Breakdown
 

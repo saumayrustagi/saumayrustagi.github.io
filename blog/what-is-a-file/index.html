@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
-<link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖥️</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
 <title>What is a file? | Saumay Rustagi</title>
-<link rel="canonical" href="https://saumayrustagi.bearblog.dev/what-is-a-file/" />
-<meta name="saumayrustagi" content="look-for-the-bear-necessities" />
+<link rel="canonical" href="https://saumayrustagi.bearblog.dev/what-is-a-file/">
+<meta name="saumayrustagi" content="look-for-the-bear-necessities">
 
 <meta name="title" content="What is a file?">
-<meta name="description" content="How to convert a base64 data stream into an image?
-Intro: What&#x27;s in a bookmark?
-I exported my Chrome bookmarks to an HTML file and saw that it has a basic HT...">
+<meta name="description" content="Decode a base64 image into png">
 
 <meta property="og:site_name" content="Saumay Rustagi">
 <meta property="og:title" content="What is a file?">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://saumayrustagi.bearblog.dev/what-is-a-file/">
-<meta property="og:description" content="How to convert a base64 data stream into an image?
-Intro: What&#x27;s in a bookmark?
-I exported my Chrome bookmarks to an HTML file and saw that it has a basic HT...">
+<meta property="og:description" content="Decode a base64 image into png">
 <meta property="og:image" content="https://i.ibb.co/mTV6jjL/profile-flower.png">
 
 <meta property="twitter:card" content="summary">
 <meta property="twitter:url" content="https://saumayrustagi.bearblog.dev/what-is-a-file/">
 <meta property="twitter:title" content="What is a file?">
-<meta property="twitter:description" content="How to convert a base64 data stream into an image?
-Intro: What&#x27;s in a bookmark?
-I exported my Chrome bookmarks to an HTML file and saw that it has a basic HT...">
+<meta property="twitter:description" content="Decode a base64 image into png">
 <meta property="twitter:image" content="https://i.ibb.co/mTV6jjL/profile-flower.png">
 
 <script type="application/ld+json">
@@ -37,21 +29,19 @@ I exported my Chrome bookmarks to an HTML file and saw that it has a basic HT...
     "@type": "article",
     "name": "What is a file?",
     "url": "https://saumayrustagi.bearblog.dev/what-is-a-file/",
-    "description": "How to convert a base64 data stream into an image?
-Intro: What&#x27;s in a bookmark?
-I exported my Chrome bookmarks to an HTML file and saw that it has a basic HT...",
+    "description": "Decode a base64 image into png",
     "about": {
       "@type": "What is a file?",
-      "description": "How to convert a base64 data stream into an image?
-Intro: What&#x27;s in a bookmark?
-I exported my Chrome bookmarks to an HTML file and saw that it has a basic HT..."
+      "description": "Decode a base64 image into png"
     }
   }
 </script>
 <link rel="stylesheet" href="/static/pygmentify/css/default.min.css">
+<link rel="shortcut icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E🖥️%3C/text%3E%3C/svg%3E">
 <style>
       
       
+
 :root {
     --width: 720px;
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
@@ -111,7 +101,7 @@ button {
     cursor: pointer;
 }
 
-content {
+main {
     line-height: 1.6;
 }
 
@@ -189,6 +179,29 @@ ul.blog-posts li span {
 ul.blog-posts li a:visited {
     color: var(--visited-color);
 }
+.upvote-button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: inherit;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.upvote-button.upvoted {
+    color: salmon;
+}
+.upvote-count {
+    margin-top: -3px;
+}
+
+body:hover {
+    border-image: url("/hit/RGzypixgExRKYwuYEqeG/?ref=https://bearblog.dev/");
+    border-width: 0;
+}
+
+
       
   </style>
 </head>
@@ -209,56 +222,55 @@ What is a file?
 </h1>
 <p>
 <i>
-<time datetime="2023-04-16" pubdate>
+<time datetime="2023-04-16">
 16 Apr, 2023
 </time>
 </i>
 </p>
-<content>
 <div><h1 id="how-to-convert-a-base64-data-stream-into-an-image">How to convert a base64 data stream into an image?</h1>
 <h2 id="intro-what-s-in-a-bookmark">Intro: What's in a bookmark?</h2>
-<p>I exported my Chrome bookmarks to an HTML file and saw that it has a basic HTML structure: I could open it in my browser like a standard HTML file.<br/>
+<p>I exported my Chrome bookmarks to an HTML file and saw that it has a basic HTML structure: I could open it in my browser like a standard HTML file.<br>
 The thing that caught my attention, however, was the structure of the bookmark tags - they are arranged in a table as data in the form of anchor tag links with additional attributes <code>ADD_DATE</code> and <code>ICON</code> apart from the typical <code>HREF</code> (the file had everything capitalized). While these attributes don't affect how these links are displayed in the browser, they do serve their own purposes:</p>
 <ul>
 <li><code>ADD_DATE</code> contains the timestamp since the UNIX epoch and</li>
 <li><code>ICON</code> wraps the data for the favicon to be displayed beside the bookmark in the browser.</li>
 </ul>
-<p><img alt="src" src="https://imgur.com/nLmatzd.png" /></p>
+<p><img alt="src" src="https://imgur.com/nLmatzd.png"></p>
 <blockquote>
 <p>Wait, shouldn't <code>ICON</code> contain a path to some image online?</p>
 </blockquote>
 <p>No, in fact...</p>
 <h2 id="iconic-data-internals-of-icon">Iconic Data: Internals of <code>ICON</code></h2>
 <p>...<code>ICON</code> stores the <em>complete information</em> needed to display a PNG image, in the form of base64-encoded data. We can tell by looking at the helpful <code>data:image/png;base64</code> descriptor at the start of the attribute value. This descriptor is what allows the browser to display the favicon. Even a non-Chromium browser like Firefox can decode this data if it fits the encoding Firefox expects from a favicon. To test, we simply paste the contents of <code>ICON</code> in the address bar:</p>
-<p><img alt="base64" src="https://imgur.com/5pXgmY0.png" /></p>
+<p><img alt="base64" src="https://imgur.com/5pXgmY0.png"></p>
 <p>(All modern browsers should expect the same type of data in the same encoding, if not, these bookmark files won't be cross-browser compatible.)</p>
 <h2 id="let-s-make-a-png-file-from-base64-data">Let's make a PNG file from base64 data!</h2>
-<p>How does the browser go from reading base64-encoded data to displaying a PNG file as the favicon?<br/>
+<p>How does the browser go from reading base64-encoded data to displaying a PNG file as the favicon?<br>
 Let's try to create a file that would display the same image in Firefox.</p>
 <p>The naïve approach would be to paste the contents of <code>ICON</code> into a file and try opening that with the browser.</p>
-<div class="highlight"><pre class="text"><span></span>$ echo &#39;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIklEQVQ4jYWSS0iUURTHf/fe8RvHooE2VlT2FNqUGWmNEYUR9lhEEVJhUIsoXOQuap1Rq6KHNQt3LaPAIOxhlNTChUwLMU3NR1CklUzg6xvPd1ro2KhTHjjcA/e8/uf/hzmmqsUiEheRLhHxp/2TiDxQ1aK5+ZmFeSJSrwuYiMRVNZKuMxnFz51zu9T3GX/6iPGmRqS/F5WAUMEawuUVRI5UYjwPEWl2zlUYY8YMgIjUW2vPBkPfSV6uYbKvJ+uW3rZSojfuABAEQdw5d96oajHQqr7P8IUqpL8X43lEjp3EK4mBtfgt75l4+4po7U3cytWZPbcyjUlTidv642ipDu7foX7bh2zgs92jDhHpUlWdbNmuEw15OvqweqE7ZjboCAEFADrSjs1LkRM7NAt3+bWRebfYudFx9XguwFqbwePs9z/mT/6NLdAHMBpex28W0/C1Y1Zy05VFM75nUwiAZVGT/v5sgdcA3UurOPUrxvXOFhJD7fOmdn4LeNc5NbpkfWimv5mWZ8KXFKdfXqInOYBnc6gsPEjZ8mKssbQOtvEkMczYl0oK8z3un4lgppbYkhZS3Fp7bnD0Jxeba+lODmTFviFcxq29NeRHDUEQ1DnnqtNSjohIo3Nutx+keNz9gmf9zfQkB0ChYMkK9q2KcaLwMJFQGFV9Y4w5YIwZzyBBI2lRLcD9PVXN/SdFqlokInUi0iEiE9P+UUTuqurmufl/AKTzsFGmvUNUAAAAAElFTkSuQmCC&#39; &gt; ff.png
+<div class="highlight"><pre><span></span>$ echo 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIklEQVQ4jYWSS0iUURTHf/fe8RvHooE2VlT2FNqUGWmNEYUR9lhEEVJhUIsoXOQuap1Rq6KHNQt3LaPAIOxhlNTChUwLMU3NR1CklUzg6xvPd1ro2KhTHjjcA/e8/uf/hzmmqsUiEheRLhHxp/2TiDxQ1aK5+ZmFeSJSrwuYiMRVNZKuMxnFz51zu9T3GX/6iPGmRqS/F5WAUMEawuUVRI5UYjwPEWl2zlUYY8YMgIjUW2vPBkPfSV6uYbKvJ+uW3rZSojfuABAEQdw5d96oajHQqr7P8IUqpL8X43lEjp3EK4mBtfgt75l4+4po7U3cytWZPbcyjUlTidv642ipDu7foX7bh2zgs92jDhHpUlWdbNmuEw15OvqweqE7ZjboCAEFADrSjs1LkRM7NAt3+bWRebfYudFx9XguwFqbwePs9z/mT/6NLdAHMBpex28W0/C1Y1Zy05VFM75nUwiAZVGT/v5sgdcA3UurOPUrxvXOFhJD7fOmdn4LeNc5NbpkfWimv5mWZ8KXFKdfXqInOYBnc6gsPEjZ8mKssbQOtvEkMczYl0oK8z3un4lgppbYkhZS3Fp7bnD0Jxeba+lODmTFviFcxq29NeRHDUEQ1DnnqtNSjohIo3Nutx+keNz9gmf9zfQkB0ChYMkK9q2KcaLwMJFQGFV9Y4w5YIwZzyBBI2lRLcD9PVXN/SdFqlokInUi0iEiE9P+UUTuqurmufl/AKTzsFGmvUNUAAAAAElFTkSuQmCC' &gt; ff.png
 </pre></div>
-<p>This approach will fail as the descriptor and data are intended for the address bar and we have no reason to assume that reading a file would involve the same process used to decode an address.<br/>
+<p>This approach will fail as the descriptor and data are intended for the address bar and we have no reason to assume that reading a file would involve the same process used to decode an address.<br>
 Nevertheless, feel free to try. To open a file in the browser, press Ctrl+O or enter its path into the address bar.</p>
-<p><img alt="failed" src="https://imgur.com/lEsMv4z.png" /></p>
+<p><img alt="failed" src="https://imgur.com/lEsMv4z.png"></p>
 <p>The next approach would be to remove the descriptor and let the browser decide how to process the file. After removing the descriptor, purely base64 data is left.</p>
-<div class="highlight"><pre class="text"><span></span>$ cat ff.png 
+<div class="highlight"><pre><span></span>$ cat ff.png 
 iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIklEQVQ4jYWSS0iUURTHf/fe8RvHooE2VlT2FNqUGWmNEYUR9lhEEVJhUIsoXOQuap1Rq6KHNQt3LaPAIOxhlNTChUwLMU3NR1CklUzg6xvPd1ro2KhTHjjcA/e8/uf/hzmmqsUiEheRLhHxp/2TiDxQ1aK5+ZmFeSJSrwuYiMRVNZKuMxnFz51zu9T3GX/6iPGmRqS/F5WAUMEawuUVRI5UYjwPEWl2zlUYY8YMgIjUW2vPBkPfSV6uYbKvJ+uW3rZSojfuABAEQdw5d96oajHQqr7P8IUqpL8X43lEjp3EK4mBtfgt75l4+4po7U3cytWZPbcyjUlTidv642ipDu7foX7bh2zgs92jDhHpUlWdbNmuEw15OvqweqE7ZjboCAEFADrSjs1LkRM7NAt3+bWRebfYudFx9XguwFqbwePs9z/mT/6NLdAHMBpex28W0/C1Y1Zy05VFM75nUwiAZVGT/v5sgdcA3UurOPUrxvXOFhJD7fOmdn4LeNc5NbpkfWimv5mWZ8KXFKdfXqInOYBnc6gsPEjZ8mKssbQOtvEkMczYl0oK8z3un4lgppbYkhZS3Fp7bnD0Jxeba+lODmTFviFcxq29NeRHDUEQ1DnnqtNSjohIo3Nutx+keNz9gmf9zfQkB0ChYMkK9q2KcaLwMJFQGFV9Y4w5YIwZzyBBI2lRLcD9PVXN/SdFqlokInUi0iEiE9P+UUTuqurmufl/AKTzsFGmvUNUAAAAAElFTkSuQmCC
 </pre></div>
 <p>As you may have guessed, this approach too will fail for the same reason, but we are on the right track!</p>
 <h2 id="covering-all-bases-what-is-data-after-all">Covering all bases: What is data after all?</h2>
 <p>We now know that the data is in base64, which is simply a way to encode binary data. Since all data is ultimately binary at the lowest level, it's safe to assume that given this binary data, the browser will know how to display the file even without any descriptors.</p>
 <p>We need a hexadecimal processor to create a binary file from this base64-encoded data. We don't manipulate binary data directly because it's extremely cumbersome to represent and work with, instead, we use hexadecimal which lets us store much more information with fewer bits and greater convenience. Once we have hexadecimal data, it's very simple to convert it into binary. A widely available Linux utility, <code>xxd</code> can both encode and decode hexadecimal files.</p>
-<p>But before all this, we must convert the base64 data into hexadecimal first. A simple method is to just go to <a href="https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html">RapidTables</a> for the conversion from base64 to hexadecimal. Copy the contents of your file, paste them into the base64 box, and copy the resulting hexadecimal data into a file.</p>
-<div class="highlight"><pre class="text"><span></span>$ echo &#39;89 50 [..omitted for brevity..] 60 82&#39; &gt; hexadecimal.txt
+<p>But before all this, we must convert the base64 data into hexadecimal first. A simple method is to just go to <a href="https://www.rapidtables.com/convert/number/ascii-hex-bin-dec-converter.html" target="_blank">RapidTables</a> for the conversion from base64 to hexadecimal. Copy the contents of your file, paste them into the base64 box, and copy the resulting hexadecimal data into a file.</p>
+<div class="highlight"><pre><span></span>$ echo '89 50 [..omitted for brevity..] 60 82' &gt; hexadecimal.txt
 </pre></div>
-<p>This file contains a lot of unnecessary spaces (<code>&#x27; &#x27;</code>) which need to be removed to convert it into pure hexadecimal.</p>
-<div class="highlight"><pre class="text"><span></span>$ cat hexadecimal.txt | tr -d &#39; &#39; &gt; hexmod.txt
+<p>This file contains a lot of unnecessary spaces (<code>' '</code>) which need to be removed to convert it into pure hexadecimal.</p>
+<div class="highlight"><pre><span></span>$ cat hexadecimal.txt | tr -d ' ' &gt; hexmod.txt
 $ cat hexmod.txt
 89504E47[..omitted for brevity..]AE426082
 </pre></div>
 <p>Now we have a purely hexadecimal file, which we need to convert into binary.</p>
-<div class="highlight"><pre class="text"><span></span>$ xxd -r -p hexmod.txt &gt; newff.png
+<div class="highlight"><pre><span></span>$ xxd -r -p hexmod.txt &gt; newff.png
 </pre></div>
 <ul>
 <li>Here, <code>-r</code> denotes that we are reverting the file from hexadecimal to binary,</li>
@@ -267,30 +279,34 @@ $ cat hexmod.txt
 </ul>
 <h2 id="moment-of-truth">Moment of Truth</h2>
 <p>Once all this is done, just open newff.png in your browser of choice - you'll see that the same image is displayed as the content of ICON.</p>
-<p><img alt="success" src="https://imgur.com/rnQCujC.png" /></p>
+<p><img alt="success" src="https://imgur.com/rnQCujC.png"></p>
 <p>Not only that, this file is, for all intents and purposes, a PNG file - and will be treated as such by the OS, even showing the file's preview on the Desktop.</p>
-<p><img alt="desktop" src="https://imgur.com/zrhJ3lC.png" /></p>
+<p><img alt="desktop" src="https://imgur.com/zrhJ3lC.png"></p>
 <h2 id="outro">Outro</h2>
 <p>A file can just be thought of as instructions that the program designed to handle it has to perform to show us the expected outcome. In the case of an image, the instructions are to manipulate the pixels of the screen such that we perceive it as an image. Given certain descriptors and methods of evaluation, a file can be processed effectively by a program carrying out these instructions.</p>
 <p><strong>Kindly communicate improvements via <a href="mailto:saumay03pro@gmail.com">e-mail</a>.</strong></p>
 </div>
-</content>
 <p class="tags">
-<a href="/blog/?q=linux">#linux</a>
-<a href="/blog/?q=html">#html</a>
-<a href="/blog/?q=xxd">#xxd</a>
 <a href="/blog/?q=binary">#binary</a>
 <a href="/blog/?q=hexadecimal">#hexadecimal</a>
+<a href="/blog/?q=html">#html</a>
+<a href="/blog/?q=linux">#linux</a>
+<a href="/blog/?q=xxd">#xxd</a>
 </p>
+<form id="upvote-form" action="/upvote/RGzypixgExRKYwuYEqeG/" method="post" style="display: inline">
 <small>
-<form id="upvote-form" action="/upvote/34250/" method="post" style="display: inline">
-<input hidden name="pk" value="34250" style="display:none" />
-<input hidden name="title" style="display:none" />
-<input type="hidden" name="csrfmiddlewaretoken" value="FjabpAP8qfcif5cuzGP7JIlYrNVao00JU9kSvesQnUgYtlQBrXiLj5ZzgiM6dyJl">
-<button>▵ Toast this post</button>
-</form>
-- <small class="upvote-count">7 toasts</small>
+<input hidden name="uid" value="RGzypixgExRKYwuYEqeG" style="display:none">
+<input hidden name="title" style="display:none">
+<input type="hidden" name="csrfmiddlewaretoken" value="jXtpWDdrD46FuKS9YLNDiG3quXSL8vZ8uwNYZreKei1YNCx8zPnA1M1bFG9krWy5">
+<button class="upvote-button" title="Toast this post">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+<polyline points="17 11 12 6 7 11"></polyline>
+<polyline points="17 18 12 13 7 18"></polyline>
+</svg>
+<small class="upvote-count">11</small>
+</button>
 </small>
+</form>
 <script>
     document.querySelector('#upvote-form').addEventListener('submit', (e) => {
         e.preventDefault();
@@ -301,20 +317,16 @@ $ cat hexmod.txt
         });
         const button = form.querySelector('button')
         button.disabled = true
-        button.innerText = "▵ Toasted"
+        button.style.color = "salmon"
         const upvoteCount = document.querySelector('.upvote-count')
-        upvoteCount.innerHTML = `${(parseInt(upvoteCount.innerHTML.split(" ")[0]) + 1)} toasts`
+        upvoteCount.innerHTML = `${(parseInt(upvoteCount.innerHTML.split(" ")[0]) + 1)}`
     });
 </script>
 </main>
 <footer style="padding:25px 0;">
-Made with <a href="https://bearblog.dev">Bear ʕ•ᴥ•ʔ</a>
-<style>
-      body:hover {
-        border-image: url("/hit/34250");
-        border-width: 0;
-      }
-    </style>
+<span>
+Powered by <a href="https://bearblog.dev">Bear ʕ•ᴥ•ʔ</a>
+</span>
 </footer>
 </body>
 </html>
